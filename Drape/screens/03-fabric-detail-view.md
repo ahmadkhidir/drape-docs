@@ -26,10 +26,10 @@
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
 | WebGPU Cloth Viewport | Canvas | Web | 60 FPS real-time cloth simulation | Local WGSL shader + PBR textures |
-| Mill Specification Panel | Panel | Web | Displays certified fiber and weave data | GET `/api/fabrics/:id` |
+| Mill Specification Panel | Panel | Web | Displays certified fiber and weave data | GET `/api/v1/fabrics/:id` |
 | Micro-Weave Trigger | Button | Web | Launches 10x microscopic inspection | Static |
 | Tailor on Silhouette CTA | Button | Web | Initiates the Neural Tailor fitting flow | Static |
-| Swatch Sample Button | Button | Web | Adds physical swatch box to cart | POST `/api/cart` |
+| Swatch Sample Button | Button | Web | Adds physical swatch box to cart | POST `/api/v1/cart` |
 
 ### Declared Assets
 
@@ -51,7 +51,7 @@
 
 **Data Flow:**
 1. Screen mounts &rarr; parse `:id`
-2. Fetch fabric details from `GET /api/fabrics/:id`
+2. Fetch fabric details from `GET /api/v1/fabrics/:id`
 3. Load PBR normal/roughness textures into WebGPU canvas
 4. Initialize Verlet physics simulation loop
 

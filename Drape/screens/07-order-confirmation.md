@@ -29,9 +29,9 @@
 
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
-| Order Status Tracker | Stepper | Web | Visual progress of cutting and dispatch | GET `/api/orders/:id` |
+| Order Status Tracker | Stepper | Web | Visual progress of cutting and dispatch | GET `/api/v1/orders/:id` |
 | Dye-Lot Certificate Card | Card | Web | Authenticates roll purity and batch | Order metadata |
-| Download Spec Button | Button | Web | Downloads technical PDF for personal tailor | GET `/api/orders/:id/spec-pdf` |
+| Download Spec Button | Button | Web | Downloads technical PDF for personal tailor | GET `/api/v1/fittings/:id/tailor-spec/pdf` |
 | Route to Tailor Banner | Container | Web | Launches concierge partner tailor flow | Static / Link |
 
 ### Declared Assets
@@ -47,7 +47,7 @@ None (dedicated confirmation page).
 
 **Data Flow:**
 1. Screen mounts &rarr; parse `:id`
-2. Fetch confirmed order details from `GET /api/orders/:id`
+2. Fetch confirmed order details from `GET /api/v1/orders/:id`
 3. Generate signed PDF download URL
 
 ### States

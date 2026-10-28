@@ -28,8 +28,8 @@
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
 | City & Specialty Filter | DropdownMenu / Tabs | Web | Filters tailor listings by location | State |
-| Tailor Studio Card | Card | Web | Displays atelier credentials and booking terms | GET `/api/tailors` |
-| Handoff Confirmation Modal | Modal dialog | Web | Confirms destination update and appointment link | POST `/api/orders/:id/route-tailor` |
+| Tailor Studio Card | Card | Web | Displays atelier credentials and booking terms | GET `/api/v1/tailors` |
+| Handoff Confirmation Modal | Modal dialog | Web | Confirms destination update and appointment link | POST `/api/v1/orders/:id/route-tailor` |
 
 ### Declared Assets
 Uses the shared Empty State defined in `[screens.md](../screens.md)`.
@@ -48,8 +48,8 @@ Uses the shared Empty State defined in `[screens.md](../screens.md)`.
 
 **Data Flow:**
 1. Screen mounts &rarr; parse query parameter `?order_id=...`
-2. Fetch tailors via `GET /api/tailors`
-3. User selects tailor &rarr; submit update via `POST /api/orders/:order_id/route-tailor`
+2. Fetch tailors via `GET /api/v1/tailors`
+3. User selects tailor &rarr; submit update via `POST /api/v1/orders/:order_id/route-tailor`
 
 ### States
 

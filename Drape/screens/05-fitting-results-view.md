@@ -25,8 +25,8 @@
 
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
-| Fitting Render Viewer | Container | Web | Displays high-res tailored image with zoom lens | GET `/api/fittings/:id` |
-| 360° Motion Player | VideoPlayer | Web | Plays 4s looping neural video walk | GET `/api/fittings/:id/motion` |
+| Fitting Render Viewer | Container | Web | Displays high-res tailored image with zoom lens | GET `/api/v1/fittings/:id` |
+| 360° Motion Player | VideoPlayer | Web | Plays 4s looping neural video walk | GET `/api/v1/fittings/:id/motion` |
 | Yardage Calculator Drawer | Sheet / Drawer | Web | Computes yardage based on user dimensions ([FEAT-007](../features/FEAT-007.md)) | Local engine / API |
 | Ephemeral Timer Badge | Chip | Web | Shows countdown confirming privacy photo purge | WebSocket / Timer |
 | Order Button | Button | Web | Opens yardage drawer or navigates to checkout | State |
@@ -47,7 +47,7 @@ Uses the shared Loading Skeleton and Error State defined in `[screens.md](../scr
 - Fitting record (id, status, render_url, motion_video_url, fabric_id, silhouette_id, drape_score, ephemeral_expires_at)
 
 **Data Flow:**
-1. Screen mounts &rarr; connect to WebSocket endpoint `/ws/fittings/:id`
+1. Screen mounts &rarr; connect to WebSocket endpoint `/ws/v1/fittings/:id`
 2. If `status === "PROCESSING"` &rarr; show progress animation with tailoring milestones
 3. On completion &rarr; render composite image and initialize ephemeral timer countdown
 

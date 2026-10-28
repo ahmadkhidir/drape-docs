@@ -31,8 +31,8 @@
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
 | Atelier Header | Navbar | Web | Brand identity, audio toggle, navigation | Static / Context |
-| Hero Presentation | Container | Web | Captures visual authority and core value proposition | GET `/api/curations/hero` |
-| Featured Swatch Rail | Grid / Carousel | Web | Highlights top seasonal luxury textiles | GET `/api/fabrics?featured=true` |
+| Hero Presentation | Container | Web | Captures visual authority and core value proposition | GET `/api/v1/curations/hero` |
+| Featured Swatch Rail | Grid / Carousel | Web | Highlights top seasonal luxury textiles | GET `/api/v1/fabrics?featured=true` |
 | Provenance Trust Bar | Flex | Web | Mill origin certifications and ethical sourcing stamps | Static |
 
 ### Declared Assets
@@ -55,7 +55,7 @@
 
 **Data Flow:**
 1. Screen mounts &rarr; render static shell and play cached hero video
-2. Fetch featured fabrics from `/api/curations/hero`
+2. Fetch featured fabrics from `/api/v1/curations/hero`
 3. Hydrate interactive WebGPU canvas when visible in viewport
 
 ### States

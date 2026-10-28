@@ -27,9 +27,9 @@
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
 | Wardrobe Tabs | Tabs | Web | Toggles between fittings and order history | State |
-| Wardrobe Fitting Card | Card | Web | Displays saved neural fitting with quick actions | GET `/api/wardrobe/fittings` |
-| Order History Table | Table | Web | Displays past fabric purchases and dye-lot codes | GET `/api/wardrobe/orders` |
-| Download Spec Button | Button | Web | Re-downloads the technical tailor PDF | GET `/api/orders/:id/spec-pdf` |
+| Wardrobe Fitting Card | Card | Web | Displays saved neural fitting with quick actions | GET `/api/v1/wardrobe?tab=fittings` |
+| Order History Table | Table | Web | Displays past fabric purchases and dye-lot codes | GET `/api/v1/wardrobe?tab=orders` |
+| Download Spec Button | Button | Web | Re-downloads the technical tailor PDF | GET `/api/v1/fittings/:id/tailor-spec/pdf` |
 
 ### Declared Assets
 
@@ -48,7 +48,7 @@ None (uses shared delete confirmation dialog when removing saved fittings).
 
 **Data Flow:**
 1. Screen mounts &rarr; authenticate user session
-2. Fetch saved wardrobe items via `GET /api/wardrobe`
+2. Fetch saved wardrobe items via `GET /api/v1/wardrobe`
 3. Render fitting cards and past orders
 
 ### States

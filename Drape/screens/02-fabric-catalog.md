@@ -28,7 +28,7 @@
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
 | Filter Sidebar | Sidebar / Drawer | Web | Faceted filtering controls | Static / Query parameters |
-| Fabric Swatch Card | Card | Web | Visual and tactile card presenting textile attributes | GET `/api/fabrics` |
+| Fabric Swatch Card | Card | Web | Visual and tactile card presenting textile attributes | GET `/api/v1/fabrics` |
 | Active Filter Pill Bar | Flex / Chips | Web | Shows active constraints with one-click dismiss | State |
 | Sorting Selector | Select | Web | Controls catalog display sequence | State |
 
@@ -49,7 +49,7 @@ Uses the shared empty state illustration defined in `[screens.md](../screens.md)
 
 **Data Flow:**
 1. Screen mounts &rarr; parse URL query parameters
-2. Fetch filtered results via `GET /api/fabrics?...`
+2. Fetch filtered results via `GET /api/v1/fabrics?...`
 3. Render grid and update filter counts dynamically
 
 ### States

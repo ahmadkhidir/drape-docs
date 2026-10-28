@@ -26,11 +26,11 @@
 
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
-| Cutting Queue Rail | List | Web | Displays pending orders sorted by urgency | GET `/api/ops/cutting-queue` |
-| Active Work Ticket Panel | Panel | Web | Shows cutting dimensions and bolt requirements | GET `/api/ops/cutting-ticket/:id` |
+| Cutting Queue Rail | List | Web | Displays pending orders sorted by urgency | GET `/api/v1/ops/cutting-queue` |
+| Active Work Ticket Panel | Panel | Web | Shows cutting dimensions and bolt requirements | GET `/api/v1/ops/cutting-ticket/:id` |
 | Barcode Verification Scanner | Input / Status | Web | Validates scanned roll against order specifications | Barcode hardware / API |
 | Laser Guide Controller | ButtonGroup | Web | Triggers physical overhead optical projection | Hardware WebSocket API |
-| Flag Flaw Action | Button | Web | Quarantines defective rolls and triggers sister bolt reorder | POST `/api/ops/bolts/:id/quarantine` |
+| Flag Flaw Action | Button | Web | Quarantines defective rolls and triggers sister bolt reorder | POST `/api/v1/ops/bolts/:id/quarantine` |
 
 ### Declared Assets
 None (operational interface utilizing functional system icons).
@@ -50,7 +50,7 @@ None (operational interface utilizing functional system icons).
 
 **Data Flow:**
 1. Screen mounts &rarr; authenticate master cutter credentials (MFA required)
-2. Stream live queue via WebSocket `/ws/ops/cutting-room`
+2. Stream live queue via WebSocket `/ws/v1/ops/cutting-room`
 3. Elena selects order &rarr; scan barcode &rarr; verify against `bolt_id`
 4. On cut complete &rarr; trigger label printer and update order status to `DISPATCHED`
 

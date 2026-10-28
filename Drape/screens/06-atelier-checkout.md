@@ -29,12 +29,12 @@
 
 | Component | Type | Platform | Purpose | Data Source |
 |---|---|---|---|---|
-| Order Summary Card | Card | Web | Displays items, yardage, and pricing | Cart state / GET `/api/cart` |
+| Order Summary Card | Card | Web | Displays items, yardage, and pricing | Cart state / GET `/api/v1/cart` |
 | Bolt Reservation Timer | Chip | Web | Shows remaining seconds on 15-min Redis lock | State / Timer |
 | Shipping Address Form | TextInput / Select | Web | Collects delivery coordinates | User input |
 | Non-Returnable Disclaimer | Checkbox | Web | Enforces legal non-returnable acknowledgement | State |
 | Payment Gateway Box | Container | Web | Hosts secure Stripe Elements card fields | Stripe SDK |
-| Swatch Credit Input | TextInput + Button | Web | Redeems $25 previous swatch purchases | POST `/api/credits/apply` |
+| Swatch Credit Input | TextInput + Button | Web | Redeems $25 previous swatch purchases | POST `/api/v1/credits/apply` |
 
 ### Declared Assets
 Uses the shared Error State defined in `[screens.md](../screens.md)`.
@@ -54,7 +54,7 @@ Uses the shared Error State defined in `[screens.md](../screens.md)`.
 - Active bolt lock expiration timestamp (`expires_at`)
 
 **Data Flow:**
-1. Screen mounts &rarr; verify active Redis bolt lock via `POST /api/checkout/lock`
+1. Screen mounts &rarr; verify active Redis bolt lock via `POST /api/v1/checkout/bolt-lock`
 2. Start 15-minute countdown clock
 3. User fills shipping & payment details
 4. On submit &rarr; dispatch payment to Stripe
